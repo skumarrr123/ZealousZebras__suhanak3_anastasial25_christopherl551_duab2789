@@ -3,7 +3,7 @@
 ## Roster
 - Suhana: PM and data parsing
 - Anastasia: JavaScript and backend development
-- Christopher: Artificial intelligence
+- Christopher: Flask and artificial intelligence
 - Dua: Frontend development
 
 ## Site Description
