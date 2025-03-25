@@ -1,10 +1,10 @@
-# Devo Dining by ZealousZebras
+# Cybersecurity Info by ZealousZebras
 
 ## Roster
 - Suhana: 
 - Anastasia: 
-- Andy: 
-- Victor: 
+- Christopher: 
+- Dua: 
 
 ## Site Description
 
