@@ -1,10 +1,10 @@
 # Cybersecurity Info by ZealousZebras
 
 ## Roster
-- Suhana: 
-- Anastasia: 
-- Christopher: 
-- Dua: 
+- Suhana: PM and data parsing
+- Anastasia: JavaScript and backend development
+- Christopher: Artificial intelligence
+- Dua: Frontend development
 
 ## Site Description
 
