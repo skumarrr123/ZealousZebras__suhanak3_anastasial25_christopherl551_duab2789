@@ -8,7 +8,7 @@
 
 ## Site Description
 
-
+Our site is meant to give the user an overview of data regarding cyberattacks. This data includes: severity level, affected industries, methods of attack, dates, etc. The user can see various graphs generated based on this data, and can filter out which data they wish to see.
 
 ## Install Guide
 
