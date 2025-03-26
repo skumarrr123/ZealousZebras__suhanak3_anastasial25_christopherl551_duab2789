@@ -1,0 +1,6 @@
+anastasiaL, christopherL, duaB -- 2025-03-24 11:47
+Explore data sets and discuss project requirements
+
+anastasiaL, christopherL, duaB -- 2025-03-25 11:47
+Worked on design doc, exploring anf finalizing choices for DB, FEF and visualization libraries
+
