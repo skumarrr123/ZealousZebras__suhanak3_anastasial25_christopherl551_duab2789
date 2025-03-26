@@ -4,3 +4,6 @@ Explore data sets and discuss project requirements
 anastasiaL, christopherL, duaB -- 2025-03-25 11:47
 Worked on design doc, exploring anf finalizing choices for DB, FEF and visualization libraries
 
+anastasiaL, christopherL, duaB, suhanaK -- 2025-03-25 11:47
+Finished DD, added profile page, refined maps and tables
+
