@@ -1,9 +1,15 @@
 anastasiaL, christopherL, duaB -- 2025-03-24 11:47
-Explore data sets and discuss project requirements
+- Explore data sets and discuss project requirements
+- Registered team and added submodule
+- Added team flag
+- Started design doc
+
+anastasiaL -- 2025-03-24 22:00
+- Completed README (heading, roster with roles, description, install guide, launch codes)
 
 anastasiaL, christopherL, duaB -- 2025-03-25 11:47
-Worked on design doc, exploring anf finalizing choices for DB, FEF and visualization libraries
+- Worked on design doc, exploring anf finalizing choices for DB, FEF and visualization libraries
 
 anastasiaL, christopherL, duaB, suhanaK -- 2025-03-26 11:47
-Finished DD, added profile page, refined maps and tables
+- Finished design doc (added profile page, refined maps and tables)
 
