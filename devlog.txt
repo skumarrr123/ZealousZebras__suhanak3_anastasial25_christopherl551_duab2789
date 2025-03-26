@@ -13,3 +13,6 @@ anastasiaL, christopherL, duaB -- 2025-03-25 11:47
 anastasiaL, christopherL, duaB, suhanaK -- 2025-03-26 11:47
 - Finished design doc (added profile page, refined maps and tables)
 
+anastasiaL -- 2025-03-26 13:14
+- Added dataset
+- Completed requirements.txt
