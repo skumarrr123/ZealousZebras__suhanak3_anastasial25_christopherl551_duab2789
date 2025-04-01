@@ -16,3 +16,10 @@ anastasiaL, christopherL, duaB, suhanaK -- 2025-03-26 11:47
 anastasiaL -- 2025-03-26 13:14
 - Added dataset
 - Completed requirements.txt
+
+anastasiaL -- 2025-04-01 3:40
+- updated design doc
+  - added details on artificial intelligence page
+  - combined data, sort, and search pages into one; edited site map accordingly
+  - clarified visualize page and how charts are stored in the user database
+  - added charts table
