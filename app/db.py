@@ -14,40 +14,34 @@ def createTables():
         #User Info
         c.execute('''
                 CREATE TABLE IF NOT EXISTS UserData (
-                    email TEXT UNIQUE NOT NULL,
+                    username TEXT UNIQUE NOT NULL,
                     password TEXT NOT NULL,
-                    type TEXT)
+                    )
             ''')
 
-        #Restaurant Info
+        # Charts Database
         c.execute('''
-                CREATE TABLE IF NOT EXISTS RestaurantData (
-                    name TEXT UNIQUE NOT NULL,
-                    openTime TEXT NOT NULL,
-                    closeTime TEXT NOT NULL,
-                    timeBetweenReserves INTEGER NOT NULL,
-                    owner TEXT NOT NULL)
-            ''') #timeBetweenReserves in minutes
-                # openTime and closeTime in military time (13:10 is 1:10 PM)
-
-        #Table Info
-        c.execute('''
-                CREATE TABLE IF NOT EXISTS TableData (
-                    ID INTEGER PRIMARY KEY,
-                    restaurant TEXT NOT NULL,
-                    numSeats INTEGER NOT NULL,
-                    X INTEGER NOT NULL,
-                    Y INTEGER NOT NULL)
+                CREATE TABLE IF NOT EXISTS Charts (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    name VARCHAR(255) NOT NULL,
+                    image VARBINARY(max) NOT NULL
+                    )
             ''')
 
-        #Reservation Info
+        # Cybersecurity Info
         c.execute('''
-                CREATE TABLE IF NOT EXISTS ReservationData (
-                    reserverEmail TEXT NOT NULL,
-                    tableID TEXT NOT NULL,
-                    numPeople INTEGER NOT NULL,
-                    time TEXT NOT NULL)
-            ''') #time in military time (13:10 is 1:10 PM)
+                CREATE TABLE IF NOT EXISTS Cyber (
+                    country TEXT NOT NULL,
+                    year TEXT NOT NULL,
+                    industry TEXT NOT NULL,
+                    loss DECIMAL NOT NULL,
+                    affected_users INT NOT NULL,
+                    source TEXT NOT NULL,
+                    vulnerability TEXT NOT NULL,
+                    defense TEXT NOT NULL,
+                    response_time INT NOT NULL
+                    )
+            ''')
 
         db.commit()
         db.close()
