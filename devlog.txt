@@ -27,3 +27,6 @@ anastasiaL -- 2025-04-01 3:40
 anastasiaL -- 2025-04-01 11:47
 - added starter code
 - modified db.py to create the correct tables
+
+anastasiaL -- 2025-04-02 00:31
+- working app in place
