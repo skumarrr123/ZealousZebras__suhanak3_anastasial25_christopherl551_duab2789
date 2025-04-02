@@ -15,18 +15,18 @@ def createTables():
         c.execute('''
                 CREATE TABLE IF NOT EXISTS UserData (
                     username TEXT UNIQUE NOT NULL,
-                    password TEXT NOT NULL,
+                    password TEXT NOT NULL
                     )
             ''')
 
         # Charts Database
-        c.execute('''
-                CREATE TABLE IF NOT EXISTS Charts (
-                    id INT AUTO_INCREMENT PRIMARY KEY,
-                    name VARCHAR(255) NOT NULL,
-                    image VARBINARY(max) NOT NULL
-                    )
-            ''')
+        # c.execute('''
+        #         CREATE TABLE IF NOT EXISTS Charts (
+        #             id INT AUTO_INCREMENT PRIMARY KEY,
+        #             name VARCHAR(255) NOT NULL,
+        #             image VARBINARY(max) NOT NULL
+        #             )
+        #     ''')
 
         # Cybersecurity Info
         c.execute('''
@@ -66,12 +66,12 @@ def resetDB():
  #all inputs are strings
  #owner account = "owner", customer account = "customer"
 def createUser(username, password):
-    print(f"Adding user {email}")
+    print(f"Adding user {username}")
     db = sqlite3.connect(DATABASE_NAME)
     c = db.cursor()
 
     try:
-        c.execute('INSERT INTO UserData VALUES (?, ?, ?)', (username, password))
+        c.execute('INSERT INTO UserData VALUES (?, ?)', (username, password))
         db.commit()
         db.close()
         print("Successfully added user")
@@ -238,20 +238,20 @@ def getRestaurantReservations(name):
 #email and password are text
 #returns user type if correct
 #returns False if login incorrect / does not exist
-def checkLogin(email, password):
-    print(f"Checking login for {email}")
+def checkLogin(username, password):
+    print(f"Checking login for {username}")
     db = sqlite3.connect(DATABASE_NAME)
     c = db.cursor()
-    c.execute("SELECT password, type FROM UserData WHERE email = ?", (email,))
+    c.execute("SELECT password FROM UserData WHERE username = ?", (username,))
     row = c.fetchone()
 
     if row == None:
-        print("Email does not exist in db")
+        print("Username does not exist in db")
         return False #account w that email does not exist
 
     if row[0] == password:
         print("Login correct")
-        return row[1]
+        return True
     else:
         print("Incorrect password")
         return False
