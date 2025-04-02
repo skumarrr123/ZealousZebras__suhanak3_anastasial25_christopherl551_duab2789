@@ -32,7 +32,8 @@ def createTables():
         c.execute('''
                 CREATE TABLE IF NOT EXISTS Cyber (
                     country TEXT NOT NULL,
-                    year TEXT NOT NULL,
+                    year INT NOT NULL,
+                    attack_type TEXT NOT NULL,
                     industry TEXT NOT NULL,
                     loss DECIMAL NOT NULL,
                     affected_users INT NOT NULL,
@@ -64,13 +65,13 @@ def resetDB():
  #returns true if successful, and false if not (email is identical to another user's)
  #all inputs are strings
  #owner account = "owner", customer account = "customer"
-def createUser(email, password, type):
+def createUser(username, password):
     print(f"Adding user {email}")
     db = sqlite3.connect(DATABASE_NAME)
     c = db.cursor()
 
     try:
-        c.execute('INSERT INTO UserData VALUES (?, ?, ?)', (email, password, type))
+        c.execute('INSERT INTO UserData VALUES (?, ?, ?)', (username, password))
         db.commit()
         db.close()
         print("Successfully added user")
