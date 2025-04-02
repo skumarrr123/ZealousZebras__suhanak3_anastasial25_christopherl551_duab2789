@@ -32,10 +32,42 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
+<!-- <li class="nav-item">
+                <a class="nav-link" href="/game">Game</a>
+              </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/description">Description</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/leaderboard">Leaderboard</a>
+        </li>
+         -->
+      </ul>
+    <div class="mrt ml-auto">
+    <ul class="navbar-nav">
+    {% if logged_in %}
+    <li class="nav-item"> 
+        <a class="nav-link" href="/profile">Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/logout">Log out</a>
+    </li>
+    {% else %}
+    <li class="nav-item">
+        <a class="nav-link" href="/login">Log in</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/register">Register</a>
+    </li>
+    {% endif %}
+    </ul>
+    </div>
+
         <li class="nav-item">
           <a class="nav-link" href="/profile">Profile</a>
         </li>
       </ul>
+<<<<<<< HEAD
 <div class="mrt ml-auto">
 <ul class="navbar-nav">
 <li class="nav-item">
@@ -43,6 +75,13 @@
         </li>
 </ul>
 </div>
+=======
+      <div class="search-container">
+        <form method="POST">
+          <input type="text" placeholder="Search">
+          <button type="submit">Submit</button>
+      </div>
+>>>>>>> 8f4b793417db24924e0381b45af5ef204839d18f
     </div>
   </div>
 </nav>
