@@ -18,8 +18,8 @@ db.resetDB()
 @app.route('/', methods=['GET', 'POST'])
 def homeBase():
     if('username' in session):
-        return render_template('home.html')
-    return redirect(url_for('login'))
+        return render_template('home.html', logged_in = True)
+    return render_template('home.html', logged_in = False)
 
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
