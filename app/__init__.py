@@ -61,6 +61,13 @@ def auth_register():
         return redirect('/')
     return render_template("register.html")
 
+@app.route('/profile', methods=['GET', 'POST'])
+def profile():
+    if ('username' in session):
+        return render_template("profile.html")
+    else:
+        return redirect('/login')
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
