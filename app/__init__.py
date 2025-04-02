@@ -64,7 +64,7 @@ def auth_register():
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if ('username' in session):
-        return render_template("login.html")
+        return render_template("profile.html")
     else:
         return redirect('/login')
 
