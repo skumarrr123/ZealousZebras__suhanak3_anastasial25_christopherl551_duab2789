@@ -23,3 +23,7 @@ anastasiaL -- 2025-04-01 3:40
   - combined data, sort, and search pages into one; edited site map accordingly
   - clarified visualize page and how charts are stored in the user database
   - added charts table
+
+anastasiaL -- 2025-04-01 11:47
+- added starter code
+- modified db.py to create the correct tables
