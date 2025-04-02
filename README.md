@@ -1,4 +1,4 @@
-# Cybersecurity Info by ZealousZebras
+# Cybersecurity Scoop by ZealousZebras
 
 ## Roster
 - Suhana: PM and data parsing
