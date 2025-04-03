@@ -34,11 +34,9 @@ anastasiaL -- 2025-04-02 00:31
 suhanaK -- 2025-04-02 11:47
 - working on data page and display
 
-<<<<<<< HEAD
-duaB -- 2025-04-02 11:47
-- worked on structuring home and profile page, added search bar
-=======
 anastasiaL -- 2025-04-02 11:47
 - modified routing; all users can view the home page without logging in
 - worked on navbar on home page
->>>>>>> 22ce4589280a21e201e62c7f43a7cd4c0ae881e0
+
+duaB -- 2025-04-02 11:47
+- worked on structuring home and profile page, added search bar
