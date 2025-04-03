@@ -16,6 +16,13 @@ Our site is meant to give the user an overview of data regarding cyberattacks. T
 
 Ensure that **Git** is installed on your machine. For help, refer to the following documentation: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
+Ensure that you have spun up a **Droplet** with [Digital Ocean](https://www.digitalocean.com/). For help, refer to the following documenation:
+https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu
+
+Ensure that **NGINX** is installed on your machine. For help, refer to the following documentation:
+https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-22-04
+
+
 ### How to clone/install
 1. In terminal, clone the repository to your local machine:
 
