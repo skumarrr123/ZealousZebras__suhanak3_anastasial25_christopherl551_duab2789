@@ -88,7 +88,8 @@ def getData():
     db = sqlite3.connect(DATABASE_NAME)
     c = db.cursor()
     for a in arr:
-        c.execute('INSERT INTO CyberData VALUES', (a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9]))
+        print(a)
+#        c.execute('INSERT INTO CyberData VALUES', (a[0], int(a[1]), a[2], a[3], float(a[4]), int(a[5]), a[6], a[7], a[8], int(a[9])))
     db.commit()
     db.close()
 
