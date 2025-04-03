@@ -33,3 +33,7 @@ anastasiaL -- 2025-04-02 00:31
 
 suhanaK -- 2025-04-02 11:47
 - working on data page and display
+
+anastasiaL -- 2025-04-02 11:47
+- modified routing; all users can view the home page without logging in
+- worked on navbar on home page
