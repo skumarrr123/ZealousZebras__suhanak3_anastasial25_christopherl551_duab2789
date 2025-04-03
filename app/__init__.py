@@ -17,6 +17,7 @@ db.resetDB()
 
 @app.route('/', methods=['GET', 'POST'])
 def homeBase():
+    db.getData()
     if('username' in session):
         return render_template('home.html', logged_in = True)
     return render_template('home.html', logged_in = False)
