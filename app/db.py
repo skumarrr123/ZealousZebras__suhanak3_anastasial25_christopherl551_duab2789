@@ -1,5 +1,4 @@
-import sqlite3, os
-from datetime import datetime, time, timedelta
+import sqlite3, os, csv
 
 DATABASE_NAME = "DATABASE.db"
 
@@ -30,7 +29,7 @@ def createTables():
 
         # Cybersecurity Info
         c.execute('''
-                CREATE TABLE IF NOT EXISTS Cyber (
+                CREATE TABLE IF NOT EXISTS CyberData (
                     country TEXT NOT NULL,
                     year INT NOT NULL,
                     attack_type TEXT NOT NULL,
@@ -81,24 +80,17 @@ def createUser(username, password):
         db.close()
         return False
 
-#openTime, closeTime as strings in military time (14:20), timeBetweenReserves integer in minutes, owner is the owner's email
-#name is also a string
-#returns true if successful, and false if not (name is identical to another restaurant's)
-def createRestaurant(name, openTime, closeTime, timeBetweenReserves, owner):
-    print(f"Creating restaurant {name} which opens at {openTime}, closes at {closeTime}, needs {timeBetweenReserves} minutes between reservations, and is owned by {owner}")
+#import data from csv
+def getData():
+    with open("cyberdata.csv", "r") as file:
+        arr = list(csv.reader(file))[1:]
+#    print(arr)
     db = sqlite3.connect(DATABASE_NAME)
     c = db.cursor()
-
-    try:
-        c.execute('INSERT INTO RestaurantData VALUES (?, ?, ?, ?, ?)', (name, openTime, closeTime, timeBetweenReserves, owner))
-        db.commit()
-        db.close()
-        print("Successfully added restaurant")
-        return True
-    except Exception as e:
-        print("Failed to add restaurant")
-        db.close()
-        return False
+    for a in arr:
+        c.execute('INSERT INTO CyberData VALUES', (a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9]))
+    db.commit()
+    db.close()
 
 #restaurant is string name of restaurant, numSeats is integer
 #returns true if successful, false if not (don't know why it wouldn't be)

@@ -43,3 +43,8 @@ duaB -- 2025-04-02 11:47
 christopherL -- 2025-04-02 11:47
 - Started working on AI plan using pytorch
 - Bug Fixing
+
+suhanaK -- 2025-04-03 11:47
+- Fixed in home page display
+- Edited README to include prereqs for droplet usage
+
