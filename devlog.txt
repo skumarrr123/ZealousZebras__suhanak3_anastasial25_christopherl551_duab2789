@@ -44,7 +44,14 @@ christopherL -- 2025-04-02 11:47
 - Started working on AI plan using pytorch
 - Bug Fixing
 
+anastasiaL -- 2025-04-03 11:47
+- inserted cybersecurity data into database
+
 suhanaK -- 2025-04-03 11:47
 - Fixed in home page display
 - Edited README to include prereqs for droplet usage
+
+anastasiaL -- 2025-04-04 11:47
+- fixed insertion of data into database
+- removed unnecessary methods in db.py
 
