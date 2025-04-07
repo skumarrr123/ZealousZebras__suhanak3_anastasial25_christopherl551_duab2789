@@ -55,3 +55,6 @@ anastasiaL -- 2025-04-04 11:47
 - fixed insertion of data into database
 - removed unnecessary methods in db.py
 
+anastasiaL -- 2025-04-07 11:47
+- worked on creating first chart with ApexCharts
+
