@@ -61,3 +61,5 @@ anastasiaL -- 2025-04-07 11:47
 suhanaK -- 2025-04-08 00:43
 - registered subdomain and got website running on subdomian
 
+anastasiaL -- 2025-04-08 10:15
+- added two charts to the website with ApexCharts
