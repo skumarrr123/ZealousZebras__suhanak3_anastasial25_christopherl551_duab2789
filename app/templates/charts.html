@@ -66,7 +66,7 @@
 <script src="../static/charts.js"></script>
 <div id="chart">
 <script>
-// document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function(){
   var options0 = {
     chart: {
       type: 'line'
@@ -80,11 +80,11 @@
     }
   }
 
-  var chart0 = new ApexCharts(document.querySelector("#chart"), options0);
+  var chart0 = new ApexCharts(document.querySelector("#chart0"), options0);
 
   chart0.render();
-// });
-var options1 = {
+  
+  var options1 = {
     series: [44, 55, 13, 43, 22],
     chart: {
       width: 380,
@@ -106,14 +106,8 @@ var options1 = {
   
   var chart1 = new ApexCharts(document.querySelector("#chart"), options1);
   chart1.render();
+});
 </script>
-<!-- </div> -->
-<!-- <div id="chart"> -->
-<!-- <script> -->
-<!-- document.addEventListener("DOMContentLoaded", function(){ -->
-  
-<!-- }); -->
-<!-- </script> -->
 </div>
 
 <div class="search-container">
