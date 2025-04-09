@@ -20,7 +20,8 @@ def homeBase():
     db.getData()
     if('username' in session):
         return render_template('home.html', logged_in = True)
-    return render_template('home.html', logged_in = False)
+    # return render_template('home.html', logged_in = False)
+    return render_template('charts.html')
 
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():

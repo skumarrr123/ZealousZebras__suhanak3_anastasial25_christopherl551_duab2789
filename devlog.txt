@@ -34,18 +34,32 @@ anastasiaL -- 2025-04-02 00:31
 suhanaK -- 2025-04-02 11:47
 - working on data page and display
 
-duaB -- 2025-04-02 11:47
-- worked on structuring home and profile page, added search bar
-
 anastasiaL -- 2025-04-02 11:47
 - modified routing; all users can view the home page without logging in
 - worked on navbar on home page
 
+duaB -- 2025-04-02 11:47
+- worked on structuring home and profile page, added search bar
 christopherL -- 2025-04-02 11:47
 - Started working on AI plan using pytorch
 - Bug Fixing
+
+anastasiaL -- 2025-04-03 11:47
+- inserted cybersecurity data into database
 
 suhanaK -- 2025-04-03 11:47
 - Fixed in home page display
 - Edited README to include prereqs for droplet usage
 
+anastasiaL -- 2025-04-04 11:47
+- fixed insertion of data into database
+- removed unnecessary methods in db.py
+
+anastasiaL -- 2025-04-07 11:47
+- worked on creating first chart with ApexCharts
+
+suhanaK -- 2025-04-08 00:43
+- registered subdomain and got website running on subdomian
+
+anastasiaL -- 2025-04-08 10:15
+- added two charts to the website with ApexCharts
