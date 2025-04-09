@@ -53,3 +53,83 @@ class ANN(nn.Module):
 model = ANN(input_dim = 7, output_dim = 1)
 
 print(model)
+
+X_train = torch.from_numpy(X_train)
+y_train = torch.from_numpy(y_train).view(-1,1)
+
+X_test = torch.from_numpy(X_test)
+y_test = torch.from_numpy(y_test).view(-1,1)
+
+train = torch.utils.data.TensorDataset(X_train,y_train)
+test = torch.utils.data.TensorDataset(X_test,y_test)
+
+train_loader = torch.utils.data.DataLoader(train, batch_size = 64, shuffle = True)
+test_loader = torch.utils.data.DataLoader(test, batch_size = 64, shuffle = True)
+
+import torch.optim as optim
+loss_fn = nn.BCELoss()
+optimizer = optim.SGD(model.parameters(), lr=0.001, weight_decay= 1e-6, momentum = 0.8)
+
+# lines 1 to 6
+epochs = 2000
+epoch_list = []
+train_loss_list = []
+val_loss_list = []
+train_acc_list = []
+val_acc_list = []
+
+# lines 7 onwards
+model.train() # prepare model for training
+
+for epoch in range(epochs):
+    trainloss = 0.0
+    valloss = 0.0
+
+    correct = 0
+    total = 0
+    for data,target in train_loader:
+        data = Variable(data).float()
+        target = Variable(target).type(torch.FloatTensor)
+        optimizer.zero_grad()
+        output = model(data)
+        predicted = (torch.round(output.data[0]))
+        total += len(target)
+        correct += (predicted == target).sum()
+
+        loss = loss_fn(output, target)
+        loss.backward()
+        optimizer.step()
+        trainloss += loss.item()*data.size(0)
+
+    trainloss = trainloss/len(train_loader.dataset)
+    accuracy = 100 * correct / float(total)
+    train_acc_list.append(accuracy)
+    trainloss_list.append(train_loss)
+    print('Epoch: {} \tTraining Loss: {:.4f}\t Acc: {:.2f}%'.format(
+        epoch+1,
+        train_loss,
+        accuracy
+        ))
+    epoch_list.append(epoch + 1)
+
+correct = 0
+total = 0
+valloss = 0
+model.eval()
+
+with torch.no_grad():
+    for data, target in test_loader:
+        data = Variable(data).float()
+        target = Variable(target).type(torch.FloatTensor)
+
+        output = model(data)
+        loss = loss_fn(output, target)
+        valloss += loss.item()*data.size(0)
+
+        predicted = (torch.round(output.data[0]))
+        total += len(target)
+        correct += (predicted == target).sum()
+
+    valloss = valloss/len(test_loader.dataset)
+    accuracy = 100 * correct/ float(total)
+    print(accuracy)
