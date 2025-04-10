@@ -67,3 +67,12 @@ anastasiaL -- 2025-04-08 10:15
 suhanaK -- 2025-04-09 11:47
 - working on issue with linking subdomain, almost done
 
+DESIGN REVISIONS THUS FAR:
+------------------------------------
+====================================
+- Removed over complication of searching + sort pages. Combined into existing data page, with navigation available with drop down menu and search bar
+- Added details to function of AI in this project, will be used for predicting financial loss from cybersecurity attacks in a certain year/country/attack type/industry.
+- Changes in program components reflected on site map
+- Added separate table for chart database for more clarity 
+
+
