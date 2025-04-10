@@ -58,6 +58,9 @@ anastasiaL -- 2025-04-04 11:47
 anastasiaL -- 2025-04-07 11:47
 - worked on creating first chart with ApexCharts
 
+duaB -- 2025-04-07 11:47
+- Tried to fix issues in rendering bootstrap elements (Navbar styling and dropdown not working, background wasn't rendering)
+
 suhanaK -- 2025-04-08 00:43
 - registered subdomain and got website running on subdomian
 
@@ -66,6 +69,9 @@ anastasiaL -- 2025-04-08 10:15
 
 suhanaK -- 2025-04-09 11:47
 - working on issue with linking subdomain, almost done
+
+duaB -- 2025-04-09 11:47
+- worked on trying to alter charts page to make charts more legible
 
 DESIGN REVISIONS THUS FAR:
 ------------------------------------
