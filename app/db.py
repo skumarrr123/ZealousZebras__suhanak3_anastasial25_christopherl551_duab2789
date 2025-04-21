@@ -91,6 +91,16 @@ def getData():
     db.commit()
     db.close()
 
+def returnCategory(cat):
+    db = sqlite3.connect(DATABASE_NAME)
+    c = db.cursor()
+    c.execute('SELECT ' + cat + ' FROM CyberData')
+    arr = c.fetchall()
+    db.commit()
+    db.close()
+    return arr
+    
+
 def checkLogin(username, password):
     print(f"Checking login for {username}")
     db = sqlite3.connect(DATABASE_NAME)

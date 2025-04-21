@@ -20,8 +20,7 @@ def homeBase():
     db.getData()
     if('username' in session):
         return render_template('home.html', logged_in = True)
-    # return render_template('home.html', logged_in = False)
-    return render_template('charts.html')
+    return render_template('home.html', logged_in = False)
 
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
@@ -62,6 +61,13 @@ def auth_register():
         session['password'] = password
         return redirect('/')
     return render_template("register.html")
+
+@app.route('/charts', methods=['GET', 'POST'])
+def charts():
+    arr = db.returnCategory("vulnerability")
+    print("hello")
+    print(arr)
+    return render_template('charts.html')
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
