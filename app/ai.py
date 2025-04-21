@@ -1,7 +1,7 @@
-import pandas as pd
+import pandas as pd #need to install
 import numpy as np
-import matplotlib.pyplot as plt
-import sklearn
+import matplotlib.pyplot as plt #need to install
+import sklearn #need to install scikit-learn
 
 #Pt2
 import torch
@@ -14,11 +14,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 
-df = pd.read_csv('data.csv') #Change
+df = pd.read_csv('cyberdata.csv') #Change
 print(df.shape)
 df.describe()
 
-target_column = ['approval_status'] #Change
+target_column = ['Incident Resolution Time (in Hours)'] #Change
 predictors = list(set(list(df.columns))-set(target_column))
 
 print(target_column)
@@ -40,7 +40,7 @@ class ANN(nn.Module):
         self.output_layer = nn.Linear(32,1)
         self.dropout = nn.Dropout(0.15)
 
-     def forward(self, x):
+    def forward(self, x):
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
         x = self.dropout(x)
