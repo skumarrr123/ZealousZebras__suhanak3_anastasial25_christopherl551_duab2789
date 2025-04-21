@@ -81,4 +81,6 @@ DESIGN REVISIONS THUS FAR:
 - Changes in program components reflected on site map
 - Added separate table for chart database for more clarity 
 
+suhanaK -- 2025-04-21 9:26
+- trying to fix subdomain, got it https certified but now issues with redirection + cookies
 
