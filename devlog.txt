@@ -88,3 +88,13 @@ suhanaK -- 2025-04-21 23:17
 - made data page
 - implemented search + sort functionality
 - added basiccc html subject to change
+
+HOME STRETCH CHECKLIST:
+------------------------------------
+* Refine AI a little more :: Chris
+* Home page project description and guide :: Chris
+* Presentation of all the charts :: Anastasia
+* Saving charts to user profile :: team effort
+* Finalize html/css + page linkage:: Dua
+* Get subdomain working!!! (smh) :: Suhana
+====================================
