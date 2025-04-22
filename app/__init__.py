@@ -62,21 +62,48 @@ def auth_register():
         return redirect('/')
     return render_template("register.html")
 
-@app.route('/charts', methods=['GET', 'POST'])
-def charts():
-    arr_v = db.returnCategory("vulnerability")
-    # print(arr)
+def makePie(arr):
     set_v = set()
-    for v in arr_v:
+    for v in arr:
         set_v.add(v)
     list_v = list(set_v)
     print(list_v)
     count = {}
     for i in range(len(list_v)):
         count[list_v[i]] = 0
-    for v in arr_v:
-        count[v] = count[v]+1    
-    return render_template('charts.html')
+    for v in arr:
+        count[v] = count[v]+1
+    return count
+
+@app.route('/country', methods=['GET', 'POST'])
+def country():
+    print(makePie(db.returnCategory("country")))   
+    return render_template('country.html')
+
+@app.route('/attack_type', methods=['GET', 'POST'])
+def attack_type():
+    print(makePie(db.returnCategory("attack_type")))   
+    return render_template('attack_type.html')
+
+@app.route('/industry', methods=['GET', 'POST'])
+def industry():
+    print(makePie(db.returnCategory("industry")))   
+    return render_template('industry.html')
+
+@app.route('/attack_source', methods=['GET', 'POST'])
+def attack_source():
+    print(makePie(db.returnCategory("source")))   
+    return render_template('attack_source.html')
+
+@app.route('/vulnerability', methods=['GET', 'POST'])
+def vulnerability():
+    print(makePie(db.returnCategory("vulnerability")))   
+    return render_template('vulnerability.html')
+
+@app.route('/defense', methods=['GET', 'POST'])
+def defense():
+    print(makePie(db.returnCategory("defense")))   
+    return render_template('defense.html')
 
 
 @app.route('/data', methods=['GET','POST'])
