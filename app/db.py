@@ -61,9 +61,6 @@ def resetDB():
         print("Creating database")
         return createTables()
 
- #returns true if successful, and false if not (email is identical to another user's)
- #all inputs are strings
- #owner account = "owner", customer account = "customer"
 def createUser(username, password):
     print(f"Adding user {username}")
     db = sqlite3.connect(DATABASE_NAME)
@@ -98,7 +95,10 @@ def returnCategory(cat):
     arr = c.fetchall()
     db.commit()
     db.close()
-    return arr
+    resp = []
+    for row in arr:
+        resp.append(row[0])
+    return resp
     
 
 def checkLogin(username, password):

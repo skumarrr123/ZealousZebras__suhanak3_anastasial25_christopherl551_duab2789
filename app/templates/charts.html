@@ -11,16 +11,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <style>
-    body {
-      background-image: url('../static/bg.png');
-      background-size: cover;
-    }
-
     footer {
     position: fixed;
     bottom: 0;
     right: 0;
-    color: #FFFFFF;
+    color: #000000;
     text-align: right;
     padding-right: 1rem;
     }
@@ -61,100 +56,52 @@
       <li class="nav-item">
           <a class="nav-link" href="/register">Register</a>
       </li>
-    {% endif %}
+      {% endif %}
       </div>
     </div>
   </div>
 </nav>
 <br>
 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="..." alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-
-
-<div id="chart">
-<script>
-document.addEventListener("DOMContentLoaded", function(){
-  var options0 = {
-    chart: {
-      width: 600,
-      type: 'line'
-    },
-    series: [{
-      name: 'sales',
-      data: [30,40,35,50,49,60,70,91,125]
-    }],
-    xaxis: {
-      categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-    }
-  }
-
-  var chart0 = new ApexCharts(document.querySelector("#chart"), options0);
-
-  chart0.render();
-});
-</script>
-</div>
-
-
-<div id="chart">
-<script>
-document.addEventListener("DOMContentLoaded", function(){
-  var options1 = {
-    series: [44, 55, 13, 43, 22],
-    chart: {
-      width: 600,
-      type: 'pie',
-    },
-    labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
-    responsive: [{
-      breakpoint: 480,
-      options: {
-        chart: {
-          width: 200
-        },
-        legend: {
-          position: 'bottom'
+<div class="container-fluid">
+  <center>
+  <h2>Security Vulnerability Type</h2>
+  <div id="chart">
+  <script>
+  document.addEventListener("DOMContentLoaded", function(){
+    var options1 = {
+      series: [747, 730, 785, 738],
+      chart: {
+        width: 600,
+        type: 'pie',
+      },
+      labels: ['Social Engineering', 'Weak Passwords', 'Zero-day', 'Unpatched Software'],
+      responsive: [{
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 200
+          },
+          legend: {
+            position: 'bottom'
+          }
         }
-      }
-    }]
-  };
+      }]
+    };
 
-  var chart1 = new ApexCharts(document.querySelector("#chart"), options1);
-  chart1.render();
-});
-</script>
+    var chart1 = new ApexCharts(document.querySelector("#chart"), options1);
+    chart1.render();
+  });
+  </script>
+  </div>
+  Social Engineering: the use of deception to manipulate individuals into divulging confidential or personal information that may be used for fraudulent purposes.
+  <br>
+  Zero-day: a vulnerability or security hole in a computer system unknown to its owners, developers or anyone capable of mitigating it.
+  <br>
+  Unpatched Software: applications or systems that have not been updated with the latest software fixes and security patches.
+</center>
 </div>
 
-<div class="search-container">
-  <form method="POST">
-    <input type="text" placeholder="Search">
-    <button type="submit">Submit</button>
-</div>
 <footer>
   Copyright © 2025 ZealousZebras
 </footer>
