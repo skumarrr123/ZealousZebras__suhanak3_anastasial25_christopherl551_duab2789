@@ -14,14 +14,13 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 # HOME PAGE, SHOULD PROMPT REGISTER OR LOGIN
 db.resetDB()
+db.getData()
 
 @app.route('/', methods=['GET', 'POST'])
 def homeBase():
-    db.getData()
     if('username' in session):
         return render_template('home.html', logged_in = True)
-    # return render_template('home.html', logged_in = False)
-    return render_template('charts.html')
+    return render_template('home.html', logged_in = False)
 
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
@@ -62,6 +61,60 @@ def auth_register():
         session['password'] = password
         return redirect('/')
     return render_template("register.html")
+
+def makePie(arr):
+    set_v = set()
+    for v in arr:
+        set_v.add(v)
+    list_v = list(set_v)
+    print(list_v)
+    count = {}
+    for i in range(len(list_v)):
+        count[list_v[i]] = 0
+    for v in arr:
+        count[v] = count[v]+1
+    return count
+
+@app.route('/country', methods=['GET', 'POST'])
+def country():
+    print(makePie(db.returnCategory("country")))   
+    return render_template('country.html')
+
+@app.route('/attack_type', methods=['GET', 'POST'])
+def attack_type():
+    print(makePie(db.returnCategory("attack_type")))   
+    return render_template('attack_type.html')
+
+@app.route('/industry', methods=['GET', 'POST'])
+def industry():
+    print(makePie(db.returnCategory("industry")))   
+    return render_template('industry.html')
+
+@app.route('/attack_source', methods=['GET', 'POST'])
+def attack_source():
+    print(makePie(db.returnCategory("source")))   
+    return render_template('attack_source.html')
+
+@app.route('/vulnerability', methods=['GET', 'POST'])
+def vulnerability():
+    print(makePie(db.returnCategory("vulnerability")))   
+    return render_template('vulnerability.html')
+
+@app.route('/defense', methods=['GET', 'POST'])
+def defense():
+    print(makePie(db.returnCategory("defense")))   
+    return render_template('defense.html')
+
+
+@app.route('/data', methods=['GET','POST'])
+def data_page():
+    search_query = request.args.get('search', '').lower()
+    sort_key = request.args.get('sort', 'year')
+    sort_order = request.args.get('order', 'asc') ## ascending/desc order
+
+    rows = db.getFilteredData(search_query, sort_key, sort_order)
+    return render_template('data.html', data=rows, search_query=search_query, sort_key=sort_key, sort_order=sort_order)
+
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():

@@ -84,3 +84,25 @@ DESIGN REVISIONS THUS FAR:
 suhanaK -- 2025-04-21 9:26
 - trying to fix subdomain, got it https certified but now issues with redirection + cookies
 
+anastasiaL -- 2025-04-21 11:47
+- worked on making a pie chart with the cybersecurity data
+
+suhanaK -- 2025-04-21 23:17
+- made data page
+- implemented search + sort functionality
+- added basiccc html subject to change
+
+HOME STRETCH CHECKLIST:
+------------------------------------
+* Refine AI a little more :: Chris
+* Home page project description and guide :: Chris
+* Presentation of all the charts :: Anastasia
+* Saving charts to user profile :: team effort
+* Finalize html/css + page linkage:: Dua
+* Get subdomain working!!! (smh) :: Suhana
+====================================
+
+anastasiaL -- 2025-04-22 10:15
+- added dropdown to navbar, changed color of navbar
+- added text to home page
+- added pie charts and pages for country, attack type, target industry, attack source, security vulnerability type, and defense mechanism
