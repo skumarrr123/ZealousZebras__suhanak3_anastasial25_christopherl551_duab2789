@@ -14,10 +14,11 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 # HOME PAGE, SHOULD PROMPT REGISTER OR LOGIN
 db.resetDB()
+db.getData()
+
 
 @app.route('/', methods=['GET', 'POST'])
 def homeBase():
-    db.getData()
     if('username' in session):
         return render_template('home.html', logged_in = True)
     return render_template('home.html', logged_in = False)
@@ -68,6 +69,17 @@ def charts():
     print("hello")
     print(arr)
     return render_template('charts.html')
+
+
+@app.route('/data', methods=['GET','POST'])
+def data_page():
+    search_query = request.args.get('search', '').lower()
+    sort_key = request.args.get('sort', 'year')
+    sort_order = request.args.get('order', 'asc') ## ascending/desc order
+
+    rows = db.getFilteredData(search_query, sort_key, sort_order)
+    return render_template('data.html', data=rows, search_query=search_query, sort_key=sort_key, sort_order=sort_order)
+
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():

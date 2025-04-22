@@ -91,6 +91,7 @@ def getData():
     db.commit()
     db.close()
 
+
 def returnCategory(cat):
     db = sqlite3.connect(DATABASE_NAME)
     c = db.cursor()
@@ -99,6 +100,43 @@ def returnCategory(cat):
     db.commit()
     db.close()
     return arr
+
+#filtering data by both searth and sort
+def getFilteredData(search_query='', sort_key='year', sort_order='asc'):
+    valid_sk = {
+        'year': 'year',
+        'loss': 'loss',
+        'affected_users': 'affected_users',
+        'response_time': 'response_time'
+    }
+    sort_order = 'DESC' if sort_order == 'desc' else 'ASC'
+
+    db = sqlite3.connect(DATABASE_NAME)
+    c = db.cursor()
+
+    query = f"SELECT * FROM CyberData" 
+    params = []
+
+    if search_query:
+        query += """
+        WHERE 
+            lower(country) LIKE ? OR
+            lower(attack_type) LIKE ? OR
+            lower(industry) LIKE ? OR
+            lower(source) LIKE ? OR
+            lower(vulnerability) LIKE ? OR
+            lower(defense) LIKE ?
+        """
+        like = f"%{search_query}%"
+        params.extend([like] * 6)
+
+    if sort_key in valid_sk:
+        query += f" ORDER BY {valid_sk[sort_key]} {sort_order}"
+
+    c.execute(query, params)
+    rows = c.fetchall()
+    db.close()
+    return rows
     
 
 def checkLogin(username, password):
