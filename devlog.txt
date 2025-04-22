@@ -84,3 +84,7 @@ DESIGN REVISIONS THUS FAR:
 suhanaK -- 2025-04-21 9:26
 - trying to fix subdomain, got it https certified but now issues with redirection + cookies
 
+suhanaK -- 2025-04-21 23:17
+- made data page
+- implemented search + sort functionality
+- added basiccc html subject to change
