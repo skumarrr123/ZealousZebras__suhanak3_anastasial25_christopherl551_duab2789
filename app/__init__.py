@@ -16,7 +16,6 @@ app.secret_key = 'your_secret_key'
 db.resetDB()
 db.getData()
 
-
 @app.route('/', methods=['GET', 'POST'])
 def homeBase():
     if('username' in session):
@@ -65,9 +64,18 @@ def auth_register():
 
 @app.route('/charts', methods=['GET', 'POST'])
 def charts():
-    arr = db.returnCategory("vulnerability")
-    print("hello")
-    print(arr)
+    arr_v = db.returnCategory("vulnerability")
+    # print(arr)
+    set_v = set()
+    for v in arr_v:
+        set_v.add(v)
+    list_v = list(set_v)
+    print(list_v)
+    count = {}
+    for i in range(len(list_v)):
+        count[list_v[i]] = 0
+    for v in arr_v:
+        count[v] = count[v]+1    
     return render_template('charts.html')
 
 

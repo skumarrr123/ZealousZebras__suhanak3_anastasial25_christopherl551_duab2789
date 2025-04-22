@@ -61,9 +61,6 @@ def resetDB():
         print("Creating database")
         return createTables()
 
- #returns true if successful, and false if not (email is identical to another user's)
- #all inputs are strings
- #owner account = "owner", customer account = "customer"
 def createUser(username, password):
     print(f"Adding user {username}")
     db = sqlite3.connect(DATABASE_NAME)
@@ -99,7 +96,10 @@ def returnCategory(cat):
     arr = c.fetchall()
     db.commit()
     db.close()
-    return arr
+    resp = []
+    for row in arr:
+        resp.append(row[0])
+    return resp
 
 #filtering data by both searth and sort
 def getFilteredData(search_query='', sort_key='year', sort_order='asc'):
@@ -160,17 +160,3 @@ def checkLogin(username, password):
 #will reset DB and add some data
 def createSampleData():
     resetDB()
-    createUser("topher@hotmail.com", "mykolyk", "owner")
-    createUser("tberri50@stuy.edu", "instructorendorsed", "owner")
-    createRestaurant("#GUDFAM Bagels", "8:00", "15:00", 20, "topher@hotmail.com")
-    createRestaurant("Berri's Berry Smoothies", "7:00", "20:00", 30, "tberri50@stuy.edu")
-    createTable("#GUDFAM Bagels", 10, 5, 7)
-    createTable("#GUDFAM Bagels", 3, 3, 3)
-    createTable("#GUDFAM Bagels", 5, 1, 1)
-    createTable("Berri's Berry Smoothies", 1, 3, 7)
-    createTable("Berri's Berry Smoothies", 2, 8, 5)
-    createTable("Berri's Berry Smoothies", 4, 2, 6)
-    createUser("marge@stuy.edu", "cslab", "customer")
-    createReservation("marge@stuy.edu", 1, 2, "2025-6-27-11:10")
-    createReservation("marge@stuy.edu", 1, 2, "2025-6-27-13:10")
-    createReservation("marge@stuy.edu", 2, 3, "2025-6-27-14:10")
