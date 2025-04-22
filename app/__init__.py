@@ -78,6 +78,17 @@ def charts():
         count[v] = count[v]+1    
     return render_template('charts.html')
 
+
+@app.route('/data', methods=['GET','POST'])
+def data_page():
+    search_query = request.args.get('search', '').lower()
+    sort_key = request.args.get('sort', 'year')
+    sort_order = request.args.get('order', 'asc') ## ascending/desc order
+
+    rows = db.getFilteredData(search_query, sort_key, sort_order)
+    return render_template('data.html', data=rows, search_query=search_query, sort_key=sort_key, sort_order=sort_order)
+
+
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if ('username' in session):
