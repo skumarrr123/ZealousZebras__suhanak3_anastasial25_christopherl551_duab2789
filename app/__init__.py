@@ -80,6 +80,11 @@ def country():
     print(makePie(db.returnCategory("country")))   
     return render_template('country.html')
 
+@app.route('/year', methods=['GET', 'POST'])
+def year():
+    print(makePie(db.returnCategory("year")))   
+    return render_template('year.html')
+
 @app.route('/attack_type', methods=['GET', 'POST'])
 def attack_type():
     print(makePie(db.returnCategory("attack_type")))   
@@ -89,6 +94,11 @@ def attack_type():
 def industry():
     print(makePie(db.returnCategory("industry")))   
     return render_template('industry.html')
+
+@app.route('/loss', methods=['GET', 'POST'])
+def loss():
+#    print(makePie(db.returnCategory("loss")))   
+    return render_template('loss.html')
 
 @app.route('/attack_source', methods=['GET', 'POST'])
 def attack_source():
