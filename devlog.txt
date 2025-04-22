@@ -106,3 +106,7 @@ anastasiaL -- 2025-04-22 10:15
 - added dropdown to navbar, changed color of navbar
 - added text to home page
 - added pie charts and pages for country, attack type, target industry, attack source, security vulnerability type, and defense mechanism
+
+suhanaK -- 2025-04-22 11:59
+- figured out issue w subdomain
+- created new subdomain
