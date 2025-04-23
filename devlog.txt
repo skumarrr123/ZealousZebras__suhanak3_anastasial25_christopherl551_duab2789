@@ -87,10 +87,19 @@ suhanaK -- 2025-04-21 9:26
 anastasiaL -- 2025-04-21 11:47
 - worked on making a pie chart with the cybersecurity data
 
+duaB -- 2025-04-21 11:47
+- worked on trying to make/find logo for site.
+
 suhanaK -- 2025-04-21 23:17
 - made data page
 - implemented search + sort functionality
 - added basiccc html subject to change
+
+duaB - 2025-04-22 1:06
+- added logo for pages
+- added description on home page
+- switched out background for one that made things more legible
+- started work on potential advance search feature
 
 HOME STRETCH CHECKLIST:
 ------------------------------------
@@ -106,6 +115,9 @@ anastasiaL -- 2025-04-22 10:15
 - added dropdown to navbar, changed color of navbar
 - added text to home page
 - added pie charts and pages for country, attack type, target industry, attack source, security vulnerability type, and defense mechanism
+
+duaB -- 2025-04-22 11:59
+- trying to implement carousel for charts page
 
 suhanaK -- 2025-04-22 11:59
 - figured out issue w subdomain
@@ -127,6 +139,11 @@ suhanaK -- 20250-04-23 00:44
 anastasiaL -- 2025-04-23 00:54
 - updated navbar for AI page
 - finalized design doc
+
+duaB -- 2025-04-23 2:13
+- edited home page to make text more readable
+- finished profile page styling
+- fixed issue in app that prevented access to profile page when logged in
 
 DESIGN REVISIONS THUS FAR:
 ------------------------------------
