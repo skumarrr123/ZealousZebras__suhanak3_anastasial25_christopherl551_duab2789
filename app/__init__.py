@@ -9,6 +9,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 import calendar, os
 from datetime import datetime
 import db
+from ai.py import rmse, mae
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -128,6 +129,14 @@ def defense():
     print(makePie(db.returnCategory("defense")))   
     return render_template('defense.html')
 
+@app.route('/ai', methods=['GET', 'POST'])
+def ai_page():
+    accuracy = round(100 - (rmse / 24) * 100)
+    return render_template(
+        'ai.html', 
+        error_hours=round(rmse, 2),
+        accuracy=accuracy
+    )
 
 @app.route('/data', methods=['GET','POST'])
 def data_page():

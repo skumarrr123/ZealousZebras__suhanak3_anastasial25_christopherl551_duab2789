@@ -86,7 +86,7 @@ loss_fn = nn.MSELoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-5)
 
 # Training
-epochs = 2000 #change for accuracy
+epochs = 500 #change for accuracy
 epoch_list = []
 train_loss_list = []
 val_loss_list = []
