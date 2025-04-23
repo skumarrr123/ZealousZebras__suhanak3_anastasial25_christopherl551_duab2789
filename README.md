@@ -105,4 +105,4 @@ pip install -r requirements.txt
 * navbar updates based on whether the user is logged in or not
 
 ### KNOWN BUGS/ISSUES
-* AI page can be slow and is very inaccurate
+* None that we know of
