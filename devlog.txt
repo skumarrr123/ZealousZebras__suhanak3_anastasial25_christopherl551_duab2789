@@ -124,10 +124,16 @@ suhanaK -- 20250-04-23 00:44
 - added reset button to data page
 - finalized design doc
 
+anastasiaL -- 2025-04-23 00:54
+- updated navbar for AI page
+- finalized design doc
+
 DESIGN REVISIONS THUS FAR:
 ------------------------------------
 ====================================
 - removed visualize page
-- removed saving/favorting feature for logged in users
-- edited sit map accordingly
+- removed saving feature for logged in users
+- the ai is now a feature for only logged in users
+- edited site map accordingly
+- removed charts column of user database and the charts database (no longer needed since saving feature was removed)
 
