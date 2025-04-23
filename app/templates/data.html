@@ -11,9 +11,6 @@
       background-image: url("../static/background.jpg");
       background-size: 100%
       }
-    #advSearch {
-      text-align: right;
-    }
   </style>
 </head>
 <body>
@@ -80,9 +77,6 @@
     <form method="get" action="/data" class="mb-3">
       <input type="text" name="search" class="form-control mb-2" placeholder="Search..." value="{{ search_query }}">
       <button type="submit" class="btn btn-primary">Search</button>
-      <div id = "advSearch">
-        <a href = "#">Advanced Search</a>
-      </div>
     </form>
 
     <table class="table table-bordered table-striped">
