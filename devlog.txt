@@ -1,4 +1,4 @@
-anastasiaL, christopherL, duaB -- 2025-03-24 11:47
+lanastasiaL, christopherL, duaB -- 2025-03-24 11:47
 - Explore data sets and discuss project requirements
 - Registered team and added submodule
 - Added team flag
@@ -119,3 +119,15 @@ anastasiaL -- 2025-04-22 23:35
 - added histograms for financial loss, number of affected users, and incident response time
 - added definitions/explanations of different attack types
 - added background image and updated navbar across all pages
+
+suhanaK -- 20250-04-23 00:44
+- added reset button to data page
+- finalized design doc
+
+DESIGN REVISIONS THUS FAR:
+------------------------------------
+====================================
+- removed visualize page
+- removed saving/favorting feature for logged in users
+- edited sit map accordingly
+
