@@ -138,7 +138,7 @@ def ai_page():
     return render_template(
         'ai.html', 
         error_hours=10,
-        accuracy=57
+        accuracy=57, logged_in = ('username' in session)
     )
 
 @app.route('/data', methods=['GET','POST'])
