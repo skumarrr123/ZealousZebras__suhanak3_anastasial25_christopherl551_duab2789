@@ -30,36 +30,47 @@
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg" style="background-color:powderblue;">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
-          <img src="../static/logo.png" alt="Cybersecurity Scoop Logo" height="40">
+          <img src="../static/logo.png" alt="Cybersecurity Scoop Logo" height="25">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link" href="/data">Data</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/charts">Charts</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Charts
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/country">Country</a></li>
+                <li><a class="dropdown-item" href="/year">Year</a></li>
+                <li><a class="dropdown-item" href="/attack_type">Attack Type</a></li>
+                <li><a class="dropdown-item" href="/industry">Target Industry</a></li>
+                <li><a class="dropdown-item" href="/loss">Financial Loss</a></li>
+                <li><a class="dropdown-item" href="/affected_users">Affected Users</a></li>
+                <li><a class="dropdown-item" href="/attack_source">Attack Source</a></li>
+                <li><a class="dropdown-item" href="/vulnerability">Vulnerability</a></li>
+                <li><a class="dropdown-item" href="/defense">Defense Mechanism</a></li>
+                <li><a class="dropdown-item" href="/resolution">Resolution Time</a></li>
+              </ul>
             </li>
           </ul>
-    
+  
           <div class="mrt ml-auto">
           <ul class="navbar-nav">
           {% if logged_in %}
-            <li class="nav-item">
-                <a class="nav-link" href="/profile">Profile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/logout">Log out</a>
-            </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/logout">Log out</a>
+          </li>
           {% else %}
           <li class="nav-item">
               <a class="nav-link" href="/login">Log in</a>
@@ -72,11 +83,16 @@
         </div>
       </div>
     </nav>
+<<<<<<< HEAD
     <div id ="container" >
       <img id = "profilePic" src = "https://i.pinimg.com/474x/93/ba/87/93ba871d62b0e2b83acadb45803a4d46.jpg" alt = "profile">
       <h2>Hello, {{ username }}!</h2>
     </div>
     </div>
+=======
+    <br>
+  
+>>>>>>> fd7add12b5bfde21142e23b512e2c9c8938c824c
 
 <!-- SEARCH BAR 
   <div class="search-container">
