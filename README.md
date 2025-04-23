@@ -97,3 +97,12 @@ pip install -r requirements.txt
 ```    
 * Running on http://127.0.0.1:5000
 ```
+
+### FEATURE SPOTLIGHT
+* searching and sorting of dataset
+* 10 interactive charts!
+  * pie charts, bar chart, histograms
+* navbar updates based on whether the user is logged in or not
+
+### KNOWN BUGS/ISSUES
+* AI page can be slow and is very inaccurate
