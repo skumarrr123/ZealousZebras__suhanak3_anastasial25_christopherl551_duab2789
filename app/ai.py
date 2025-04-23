@@ -22,9 +22,6 @@ encoders = {}
 for col in categorical_cols:
     encoders[col] = LabelEncoder()
     df[col] = encoders[col].fit_transform(df[col].astype(str))
-    print(f"Encoded {col} - {len(encoders[col].classes_)} unique values")
-print(df.dtypes)
-print(df.head())
 X = df.drop(columns=[target_column]).values
 y = df[target_column].values.reshape(-1, 1)
 X_scaler = StandardScaler()
