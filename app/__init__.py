@@ -86,47 +86,52 @@ def makeHistogram(arr, start, end, inc):
 @app.route('/country', methods=['GET', 'POST'])
 def country():
     print(makePie(db.returnCategory("country")))   
-    return render_template('country.html')
+    return render_template('country.html', logged_in = ('username' in session))
 
 @app.route('/year', methods=['GET', 'POST'])
 def year():
     print(makePie(db.returnCategory("year")))   
-    return render_template('year.html')
+    return render_template('year.html', logged_in = ('username' in session))
 
 @app.route('/attack_type', methods=['GET', 'POST'])
 def attack_type():
     print(makePie(db.returnCategory("attack_type")))   
-    return render_template('attack_type.html')
+    return render_template('attack_type.html', logged_in = ('username' in session))
 
 @app.route('/industry', methods=['GET', 'POST'])
 def industry():
     print(makePie(db.returnCategory("industry")))   
-    return render_template('industry.html')
+    return render_template('industry.html', logged_in = ('username' in session))
 
 @app.route('/loss', methods=['GET', 'POST'])
 def loss():
     print(makeHistogram(db.returnCategory("loss"), 0, 100, 10))   
-    return render_template('loss.html')
+    return render_template('loss.html', logged_in = ('username' in session))
 
 @app.route('/affected_users', methods=['GET', 'POST'])
 def affected_users():
     print(makeHistogram(db.returnCategory("affected_users"), 0, 1000000, 100000))   
-    return render_template('affected_users.html')
+    return render_template('affected_users.html', logged_in = ('username' in session))
 
 @app.route('/attack_source', methods=['GET', 'POST'])
 def attack_source():
     print(makePie(db.returnCategory("source")))   
-    return render_template('attack_source.html')
+    return render_template('attack_source.html', logged_in = ('username' in session))
 
 @app.route('/vulnerability', methods=['GET', 'POST'])
 def vulnerability():
     print(makePie(db.returnCategory("vulnerability")))   
-    return render_template('vulnerability.html')
+    return render_template('vulnerability.html', logged_in = ('username' in session))
 
 @app.route('/defense', methods=['GET', 'POST'])
 def defense():
     print(makePie(db.returnCategory("defense")))   
-    return render_template('defense.html')
+    return render_template('defense.html', logged_in = ('username' in session))
+
+@app.route('/resolution', methods=['GET', 'POST'])
+def resolution():
+    print(makeHistogram(db.returnCategory("resolution"), 0, 80, 8))   
+    return render_template('resolution.html', logged_in = ('username' in session))
 
 @app.route('/ai', methods=['GET', 'POST'])
 def ai_page():
@@ -145,13 +150,13 @@ def data_page():
     sort_order = request.args.get('order', 'asc') ## ascending/desc order
 
     rows = db.getFilteredData(search_query, sort_key, sort_order)
-    return render_template('data.html', data=rows, search_query=search_query, sort_key=sort_key, sort_order=sort_order)
+    return render_template('data.html', data=rows, search_query=search_query, sort_key=sort_key, sort_order=sort_order, logged_in = ('username' in session))
 
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if ('username' in session):
-        return render_template("profile.html")
+        return render_template("profile.html", logged_in=True, username = session['username'])
     else:
         return redirect('/login')
 

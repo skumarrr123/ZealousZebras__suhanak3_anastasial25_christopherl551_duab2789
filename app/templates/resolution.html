@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Attack Type</title>
+    <title>Incident Resolution Time</title>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="../static/charts.js"></script>
     <link href="static/css/styles.css" rel="stylesheet"/>
@@ -14,12 +14,6 @@
           background-image: url("../static/background.jpg");
           background-size: 100%
           }
-        #desc {
-        background-color: white;
-        width: 90%;
-        padding-top: 25px;
-        padding-bottom: 25px; 
-        }
       </style>
   </head>
   <body>
@@ -81,47 +75,77 @@
 
 <div class="container-fluid">
   <center>
-  <h2>Attack Type</h2>
+  <h2>Incident Resolution Time</h2>
   <div id="chart">
   <script>
   document.addEventListener("DOMContentLoaded", function(){
-    var options1 = {
-      series: [531, 503, 485, 493, 459, 529],
-      chart: {
-        width: 600,
-        type: 'pie',
-      },
-      labels: ['DDoS', 'SQL Injection', 'Malware', 'Ransomware', 'Man-in-the-Middle', 'Phishing'],
-      responsive: [{
-        breakpoint: 480,
-        options: {
-          chart: {
-            width: 200
-          },
-          legend: {
-            position: 'bottom'
-          }
+    const yData = [271, 341, 346, 351, 319, 349, 319, 342, 320, 42];
+    const options = {
+        chart: {
+            width: 600,
+            type: 'bar'
+        },
+        series: [{
+            name: 'cyberattacks',
+            data: Array.from({length: yData.length},
+                (_, i)=>({
+                    x: 4+i*8,
+                    y: yData[i],
+                }))
+        }],
+        plotOptions:{
+            bar: {
+                columnWidth: "95%",
+                strokeWidth: 2,
+            }
+        },
+        dataLabels: {enabled: false},
+        grid: {
+            xaxis: {
+                lines: {
+                    show: true
+                }
+            },
+            yaxis: {
+                lines: {
+                    show: true
+                }
+            }
+        },
+        xaxis: {
+            type: "numeric",
+            title: {text: "Incident Resolution Time (in Hours)"},
+            min: 0,
+            max: 80,
+            tickAmount: 10,
+            labels: {formatter: x => x},
+            axisBorder: {
+                color: "#000000"
+            }
+        },
+        yaxis: {
+            title: {text: "Number of Cyberattacks"},
+            min: 0,
+            max: Math.max(...yData)+1,
+            tickAmount: 5,
+            axisBorder: {
+                show: true,
+                color: "#000000"
+            }
+        },
+        tooltip:{
+            onDatasetHover: {
+                highlightDataSeries: true,
+            },
+            x: {formatter: x=>{return (x-4)+'-'+(x+4)+' hours';}}
         }
-      }]
-    };
+    }
 
-    var chart1 = new ApexCharts(document.querySelector("#chart"), options1);
-    chart1.render();
+    const chart = new ApexCharts(document.querySelector("#chart"), options);
+
+    chart.render();
   });
   </script>
-  </div>
-  <div id = "desc">
-    <b>DDoS:</b> Distributed Denial-of-Service; the attacker floods a server with internet traffic to prevent users from accessing connected online services and sites.
-    <br>
-    <b>SQL Injection:</b> malicious SQL statements are inserted into an entry field for execution.
-    <br>
-    <b>Malware:</b> malicious software; any intrusive software developed by cybercriminals to steal data and damage or destroy computers and computer systems.
-    <br>
-    <b>Ransomeware:</b> a type of malware which prevents you from accessing your device and the data stored on it, usually by encrypting your files.
-    <br>
-    <b>Man-in-the-Middle:</b> the attacker secretly relays and possibly alters the communications between two parties.
-    <br>
-    <b>Phishing:</b> sending fraudulent communications that appear to come from a legitimate and reputable source, usually through email and text.
   </div>
 </center>
 </div>

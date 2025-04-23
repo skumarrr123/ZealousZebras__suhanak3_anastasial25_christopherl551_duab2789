@@ -39,7 +39,7 @@ def createTables():
                     source TEXT NOT NULL,
                     vulnerability TEXT NOT NULL,
                     defense TEXT NOT NULL,
-                    response_time INT NOT NULL
+                    resolution INT NOT NULL
                     )
             ''')
 
@@ -107,7 +107,7 @@ def getFilteredData(search_query='', sort_key='year', sort_order='asc'):
         'year': 'year',
         'loss': 'loss',
         'affected_users': 'affected_users',
-        'response_time': 'response_time'
+        'resolution': 'resolution'
     }
     sort_order = 'DESC' if sort_order == 'desc' else 'ASC'
 
