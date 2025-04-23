@@ -133,6 +133,15 @@ def resolution():
     print(makeHistogram(db.returnCategory("resolution"), 0, 80, 8))   
     return render_template('resolution.html', logged_in = ('username' in session))
 
+@app.route('/ai', methods=['GET', 'POST'])
+def ai_page():
+    from ai import rmse, mae
+    accuracy = round(100 - (rmse / 24) * 100)
+    return render_template(
+        'ai.html', 
+        error_hours=round(rmse, 2),
+        accuracy=accuracy
+    )
 
 @app.route('/data', methods=['GET','POST'])
 def data_page():

@@ -13,38 +13,22 @@ from sklearn.metrics import mean_squared_error
 from math import sqrt
 
 df = pd.read_csv('cyberdata.csv')
-print("Original dataframe shape:", df.shape)
-print("\nData types:")
-print(df.dtypes)
-print("\nFirst 5 rows:")
-print(df.head())
 target_column = 'Incident Resolution Time (in Hours)'
-print(f"\nTarget column: {target_column}")
 categorical_cols = df.select_dtypes(include=['object', 'category']).columns.tolist()
 numerical_cols = df.select_dtypes(include=['int64', 'float64']).columns.tolist()
 if target_column in numerical_cols:
     numerical_cols.remove(target_column)
-print(f"\nCategorical columns: {categorical_cols}")
-print(f"Numerical columns: {numerical_cols}")
 encoders = {}
 for col in categorical_cols:
     encoders[col] = LabelEncoder()
     df[col] = encoders[col].fit_transform(df[col].astype(str))
-    print(f"Encoded {col} - {len(encoders[col].classes_)} unique values")
-print("\nAfter encoding:")
-print(df.dtypes)
-print(df.head())
 X = df.drop(columns=[target_column]).values
 y = df[target_column].values.reshape(-1, 1)
 X_scaler = StandardScaler()
 X = X_scaler.fit_transform(X)
 y_scaler = StandardScaler()
 y = y_scaler.fit_transform(y)
-print(f"\nFeatures shape after preprocessing: {X.shape}")
-print(f"Target shape after preprocessing: {y.shape}")
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=30)
-print(f"\nTraining set shape: {X_train.shape}")
-print(f"Test set shape: {X_test.shape}")
 
 #Define model
 class ANN(nn.Module):
@@ -69,8 +53,6 @@ class ANN(nn.Module):
 # Set up model
 input_dim = X_train.shape[1]
 model = ANN(input_dim=input_dim)
-print("\nModel architecture:")
-print(model)
 
 X_train = torch.from_numpy(X_train).float()
 y_train = torch.from_numpy(y_train).float()
@@ -86,7 +68,7 @@ loss_fn = nn.MSELoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-5)
 
 # Training
-epochs = 2000 #change for accuracy
+epochs = 500 #change for accuracy
 epoch_list = []
 train_loss_list = []
 val_loss_list = []
@@ -139,24 +121,8 @@ print(f"Mean Squared Error: {mse:.4f}")
 print(f"Root Mean Squared Error: {rmse:.4f} hours")
 print(f"Mean Absolute Error: {mae:.4f} hours")
 
-#Needs to be fixed ***************************
-'''
-# Plot training history
-plt.figure(figsize=(10, 6))
-plt.plot(epoch_list, train_loss_list, label='Training Loss')
-# Plot validation points
-val_epochs = [e for i, e in enumerate(epoch_list) if i % 50 == 0 or i == 0]
-plt.plot(val_epochs, val_loss_list, 'ro-', label='Validation Loss')
-plt.xlabel('Epochs')
-plt.ylabel('Loss (MSE)')
-plt.title('Training and Validation Loss')
-plt.legend()
-plt.grid(True)
-plt.savefig('training_history.png')
-plt.show()
-'''
-
 #view accuracy
+'''
 plt.figure(figsize=(10, 6))
 plt.scatter(actuals_orig, predictions_orig, alpha=0.5)
 plt.plot([min(actuals_orig), max(actuals_orig)], [min(actuals_orig), max(actuals_orig)], 'r--')
@@ -166,24 +132,6 @@ plt.title('Actual vs Predicted Incident Resolution Time')
 plt.grid(True)
 plt.savefig('predictions_vs_actual.png')
 plt.show()
-
-#Predict Future Cyberattacks Function
-def predict_resolution_time(new_data_df):
-    for col in categorical_cols:
-        if col in new_data_df.columns:
-            new_data_df[col] = new_data_df[col].astype(str)
-            for idx, val in enumerate(new_data_df[col]):
-                if val not in encoders[col].classes_:
-                    print(f"Warning: Value '{val}' in column '{col}' not seen during training. Using default value.")
-                    new_data_df.at[idx, col] = encoders[col].classes_[0]
-            new_data_df[col] = encoders[col].transform(new_data_df[col])
-    X_new = new_data_df.values
-    X_new = X_scaler.transform(X_new)
-    X_new_tensor = torch.from_numpy(X_new).float()
-    model.eval()
-    with torch.no_grad():
-        predictions = model(X_new_tensor)
-    predictions_orig = y_scaler.inverse_transform(predictions.numpy())
-    return predictions_orig
+'''
 
 print("\nFinished\n")
