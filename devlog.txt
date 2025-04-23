@@ -110,3 +110,6 @@ anastasiaL -- 2025-04-22 10:15
 suhanaK -- 2025-04-22 11:59
 - figured out issue w subdomain
 - created new subdomain
+
+suhanak -- 2025-04-22 21:51
+- subdomain works finally yay
