@@ -105,4 +105,4 @@ pip install -r requirements.txt
 * navbar updates based on whether the user is logged in or not
 
 ### KNOWN BUGS/ISSUES
-* None that we know of
+* none that we know of
