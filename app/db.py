@@ -18,15 +18,6 @@ def createTables():
                     )
             ''')
 
-        # Charts Database
-        # c.execute('''
-        #         CREATE TABLE IF NOT EXISTS Charts (
-        #             id INT AUTO_INCREMENT PRIMARY KEY,
-        #             name VARCHAR(255) NOT NULL,
-        #             image VARBINARY(max) NOT NULL
-        #             )
-        #     ''')
-
         # Cybersecurity Info
         c.execute('''
                 CREATE TABLE IF NOT EXISTS CyberData (
