@@ -1,3 +1,10 @@
+"""
+ZealousZebras: Anastasia Lee, Suhana Kumar, Dua Baig, Christopher Louie
+SoftDev
+P04: Cybersecurity Scoop
+2025-04-01
+"""
+
 import sqlite3, os, csv
 
 DATABASE_NAME = "DATABASE.db"
