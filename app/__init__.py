@@ -5,9 +5,7 @@ P04: Cybersecurity Scoop
 2025-04-01
 """
 
-from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify
-import calendar, os
-from datetime import datetime
+from flask import Flask, render_template, request, redirect, session, flash
 import db
 
 app = Flask(__name__)
