@@ -75,6 +75,14 @@ def makePie(arr):
         count[v] = count[v]+1
     return count
 
+def makeHistogram(arr, start, end, inc):
+    count=[]
+    for i in range(int((end-start)/inc)):
+        count.append(0)
+    for i in arr:
+        count[int((i-start)/inc)] += 1
+    return count
+
 @app.route('/country', methods=['GET', 'POST'])
 def country():
     print(makePie(db.returnCategory("country")))   
@@ -97,8 +105,13 @@ def industry():
 
 @app.route('/loss', methods=['GET', 'POST'])
 def loss():
-#    print(makePie(db.returnCategory("loss")))   
+    print(makeHistogram(db.returnCategory("loss"), 0, 100, 10))   
     return render_template('loss.html')
+
+@app.route('/affected_users', methods=['GET', 'POST'])
+def affected_users():
+    print(makeHistogram(db.returnCategory("affected_users"), 0, 1000000, 100000))   
+    return render_template('affected_users.html')
 
 @app.route('/attack_source', methods=['GET', 'POST'])
 def attack_source():

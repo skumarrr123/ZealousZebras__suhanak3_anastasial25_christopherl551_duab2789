@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Year</title>
+    <title>Financial Loss</title>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="../static/charts.js"></script>
     <link href="static/css/styles.css" rel="stylesheet"/>
@@ -55,23 +55,22 @@
 
 <div class="container-fluid">
   <center>
-  <h2>Year</h2>
+  <h2>Financial Loss</h2>
   <div id="chart">
   <script>
   document.addEventListener("DOMContentLoaded", function(){
-    const yData = [5,8,24,16,32,42,30,17,11];
+    const yData = [271, 329, 274, 310, 297, 297, 291, 317, 326, 288];
     const options = {
         chart: {
             width: 600,
             type: 'bar'
         },
         series: [{
-            name: 'visitors',
+            name: 'cyberattacks',
             data: Array.from({length: yData.length},
                 (_, i)=>({
-                    x: .5+i,
+                    x: 5+i*10,
                     y: yData[i],
-                    ... i === 4 ? ({fillColor: 'rgba(32, 120, 255, 0.4)', strokeColor: '#80afff'}) : ({})
                 }))
         }],
         plotOptions:{
@@ -95,19 +94,20 @@
         },
         xaxis: {
             type: "numeric",
+            title: {text: "Financial Loss (in Million $)"},
             min: 0,
-            max: yData.length,
-            tickAmount: yData.length,
-            labels: {formatter: x => x /*Math.round(x)*/},
-            title: {text: "Hours", offsetY: 70},
+            max: 100,
+            tickAmount: 10,
+            labels: {formatter: x => x},
             axisBorder: {
                 color: "#000000"
             }
         },
         yaxis: {
-            title: {text: "Visitors"},
+            title: {text: "Number of Cyberattacks"},
             min: 0,
-            max: Math.max(...yData),
+            max: Math.max(...yData)+1,
+            tickAmount: 5,
             axisBorder: {
                 show: true,
                 color: "#000000"
@@ -117,7 +117,7 @@
             onDatasetHover: {
                 highlightDataSeries: true,
             },
-            x: {formatter: x=>{return 'Hours '+(x-0.5)+'-'+(x+0.5);}}
+            x: {formatter: x=>{return '$'+(x-5)+'-'+(x+5)+' million';}}
         }
     }
 
