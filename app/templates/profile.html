@@ -10,6 +10,22 @@
       body {
         background-image: url("../static/background.jpg");
       }
+      #container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ededed;
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        width:50%;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      }
+      #profilePic{
+        border-radius: 75%;
+        height: 20%;
+      }
   </style>
   </head>
   <body>
@@ -67,15 +83,18 @@
         </div>
       </div>
     </nav>
-    <br>
-  
+    <div id ="container" >
+      <img id = "profilePic" src = "https://i.pinimg.com/474x/93/ba/87/93ba871d62b0e2b83acadb45803a4d46.jpg" alt = "profile">
+      <h2>Hello, {{ username }}!</h2>
+    </div>
+    </div>
 
-<!-- SEARCH BAR -->
+<!-- SEARCH BAR 
   <div class="search-container">
     <form method="POST">
       <input type="text" placeholder="Search">
       <button type="submit">Submit</button>
   </div>
-
+-->
 </body>
 </html>
