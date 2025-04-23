@@ -103,62 +103,12 @@
             </ul>
             <p>The graph shows how our predictions compare to real resolution times.</p>
           </div>
-          <div class="card">
-            <h3>Try it yourself!</h3>
-            <form id="predictionForm">
-              <div class="mb-3">
-                <label for="attackType" class="form-label">Attack Type:</label>
-                <select class="form-select" id="attackType" required>
-                  <option value="">Choose one...</option>
-                  <option value="Malware">Malware</option>
-                  <option value="Phishing">Phishing</option>
-                  <option value="DDoS">DDoS Attack</option>
-                  <option value="Ransomware">Ransomware</option>
-                  <option value="SQL">SQL Injection</option>
-                </select>
-              </div>
-              <div class="mb-3">
-                <label for="industry" class="form-label">Target Industry:</label>
-                <select class="form-select" id="industry" required>
-                  <option value="">Choose one...</option>
-                  <option value="Finance">Banking/Finance</option>
-                  <option value="Healthcare">Healthcare</option>
-                  <option value="Education">Education</option>
-                  <option value="Government">Government</option>
-                  <option value="Retail">Retail</option>
-                </select>
-              </div>
-              <div class="mb-3">
-                <label for="severity" class="form-label">How bad is it? (1-5)</label>
-                <input type="range" class="form-range" id="severity" min="1" max="5" value="3">
-                <div class="d-flex justify-content-between">
-                  <span>Minor</span>
-                  <span id="severityValue">3</span>
-                  <span>Critical</span>
-                </div>
-              </div>
-              <div class="mb-3">
-                <label for="systems" class="form-label">How many computers affected?</label>
-                <input type="number" class="form-control" id="systems" min="1" value="10">
-              </div>
-              <div class="text-center">
-                <button type="button" class="btn btn-primary" id="predictBtn">Get Prediction</button>
-              </div> 
-              <div class="result-box" id="resultBox">
-                <h4>Result:</h4>
-                <p>Based on your inputs, it would take approximately:</p>
-                <h3 class="text-center" id="predictionResult">-- hours</h3>
-                <p>to resolve this cybersecurity incident.</p>
-              </div>
-            </form>
-          </div>
-        </div>
         <div class="col-md-6">
           <div class="chart-box">
-            <img src="../static/attack_avg_time.png" alt="Attack Avg" height="25">
+            <img src="{{ url_for('static', filename='attack_avg_time.png') }}" alt="Attack Avg" height="25">
           </div>
           <div class="chart-box">
-            <img src="../static/resolution_hist.png" alt="Resolution Avg" height="25">
+            <img src="{{ url_for('static', filename='resolution_hist.png') }}" alt="Resolution Avg" height="25">
           </div>
         </div>
       </div>
