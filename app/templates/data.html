@@ -46,6 +46,7 @@
               <li><a class="dropdown-item" href="/attack_source">Attack Source</a></li>
               <li><a class="dropdown-item" href="/vulnerability">Vulnerability</a></li>
               <li><a class="dropdown-item" href="/defense">Defense Mechanism</a></li>
+              <li><a class="dropdown-item" href="/resolution">Resolution Time</a></li>
             </ul>
           </li>
         </ul>
@@ -94,7 +95,7 @@
             </a>
           </th>
           <th>Attack Type</th>
-          <th>Industry</th>
+          <th>Target Industry</th>
           <th>
             <a href="?search={{ search_query }}&sort=loss&order={% if sort_key == 'loss' and sort_order == 'asc' %}desc{% else %}asc{% endif %}">
               Financial Loss ($M) {{ '▲' if sort_key == 'loss' and sort_order == 'asc' else '▼' if sort_key == 'loss' and sort_order == 'desc' else '△' }}
@@ -103,15 +104,15 @@
           </th>
           <th>
             <a href="?search={{ search_query }}&sort=affected_users&order={% if sort_key == 'affected_users' and sort_order == 'asc' %}desc{% else %}asc{% endif %}">
-              Affected Users {{ '▲' if sort_key == 'affected_users' and sort_order == 'asc' else '▼' if sort_key == 'affected_users' and sort_order == 'desc' else '△' }}
+              Number of Affected Users {{ '▲' if sort_key == 'affected_users' and sort_order == 'asc' else '▼' if sort_key == 'affected_users' and sort_order == 'desc' else '△' }}
             </a>
           </th>
-          <th>Source</th>
-          <th>Vulnerability</th>
-          <th>Defense</th>
+          <th>Attack Source</th>
+          <th>Security Vulnerability Type</th>
+          <th>Defense Mechanism</th>
           <th>
-            <a href="?search={{ search_query }}&sort=response_time&order={% if sort_key == 'response_time' and sort_order == 'asc' %}desc{% else %}asc{% endif %}">
-              Response Time (hrs) {{ '▲' if sort_key == 'response_time' and sort_order == 'asc' else '▼' if sort_key == 'response_time' and sort_order == 'desc' else '△' }}
+            <a href="?search={{ search_query }}&sort=resolution&order={% if sort_key == 'resolution' and sort_order == 'asc' %}desc{% else %}asc{% endif %}">
+              Incident Resolution Time (hrs) {{ '▲' if sort_key == 'resolution' and sort_order == 'asc' else '▼' if sort_key == 'resolution' and sort_order == 'desc' else '△' }}
             </a>
           </th>
         </tr>

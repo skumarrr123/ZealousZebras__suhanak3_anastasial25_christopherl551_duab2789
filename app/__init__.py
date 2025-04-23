@@ -128,6 +128,11 @@ def defense():
     print(makePie(db.returnCategory("defense")))   
     return render_template('defense.html')
 
+@app.route('/resolution', methods=['GET', 'POST'])
+def resolution():
+    print(makeHistogram(db.returnCategory("resolution"), 0, 80, 8))   
+    return render_template('resolution.html')
+
 
 @app.route('/data', methods=['GET','POST'])
 def data_page():
