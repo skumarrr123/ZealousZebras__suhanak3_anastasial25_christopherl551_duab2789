@@ -133,12 +133,12 @@ def resolution():
 
 @app.route('/ai', methods=['GET', 'POST'])
 def ai_page():
-    from ai import rmse, mae
-    accuracy = round(100 - (rmse / 24) * 100)
+    # from ai import rmse, mae
+    # accuracy = round(100 - (rmse / 24) * 100)
     return render_template(
         'ai.html', 
-        error_hours=round(rmse, 2),
-        accuracy=accuracy
+        error_hours=10,
+        accuracy=57
     )
 
 @app.route('/data', methods=['GET','POST'])
