@@ -62,21 +62,76 @@ def auth_register():
         return redirect('/')
     return render_template("register.html")
 
-@app.route('/charts', methods=['GET', 'POST'])
-def charts():
-    arr_v = db.returnCategory("vulnerability")
-    # print(arr)
+def makePie(arr):
     set_v = set()
-    for v in arr_v:
+    for v in arr:
         set_v.add(v)
     list_v = list(set_v)
     print(list_v)
     count = {}
     for i in range(len(list_v)):
         count[list_v[i]] = 0
-    for v in arr_v:
-        count[v] = count[v]+1    
-    return render_template('charts.html')
+    for v in arr:
+        count[v] = count[v]+1
+    return count
+
+def makeHistogram(arr, start, end, inc):
+    count=[]
+    for i in range(int((end-start)/inc)):
+        count.append(0)
+    for i in arr:
+        count[int((i-start)/inc)] += 1
+    return count
+
+@app.route('/country', methods=['GET', 'POST'])
+def country():
+    print(makePie(db.returnCategory("country")))   
+    return render_template('country.html')
+
+@app.route('/year', methods=['GET', 'POST'])
+def year():
+    print(makePie(db.returnCategory("year")))   
+    return render_template('year.html')
+
+@app.route('/attack_type', methods=['GET', 'POST'])
+def attack_type():
+    print(makePie(db.returnCategory("attack_type")))   
+    return render_template('attack_type.html')
+
+@app.route('/industry', methods=['GET', 'POST'])
+def industry():
+    print(makePie(db.returnCategory("industry")))   
+    return render_template('industry.html')
+
+@app.route('/loss', methods=['GET', 'POST'])
+def loss():
+    print(makeHistogram(db.returnCategory("loss"), 0, 100, 10))   
+    return render_template('loss.html')
+
+@app.route('/affected_users', methods=['GET', 'POST'])
+def affected_users():
+    print(makeHistogram(db.returnCategory("affected_users"), 0, 1000000, 100000))   
+    return render_template('affected_users.html')
+
+@app.route('/attack_source', methods=['GET', 'POST'])
+def attack_source():
+    print(makePie(db.returnCategory("source")))   
+    return render_template('attack_source.html')
+
+@app.route('/vulnerability', methods=['GET', 'POST'])
+def vulnerability():
+    print(makePie(db.returnCategory("vulnerability")))   
+    return render_template('vulnerability.html')
+
+@app.route('/defense', methods=['GET', 'POST'])
+def defense():
+    print(makePie(db.returnCategory("defense")))   
+    return render_template('defense.html')
+
+@app.route('/resolution', methods=['GET', 'POST'])
+def resolution():
+    print(makeHistogram(db.returnCategory("resolution"), 0, 80, 8))   
+    return render_template('resolution.html')
 
 
 @app.route('/data', methods=['GET','POST'])
