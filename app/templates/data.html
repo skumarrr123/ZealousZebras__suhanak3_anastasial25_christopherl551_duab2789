@@ -80,9 +80,11 @@
     <form method="get" action="/data" class="mb-3">
       <input type="text" name="search" class="form-control mb-2" placeholder="Search..." value="{{ search_query }}">
       <button type="submit" class="btn btn-primary">Search</button>
+      <a href="/data" class="btn btn-warning" id="resetButton">Reset</a>
       <div id = "advSearch">
         <a href = "#">Advanced Search</a>
       </div>
+
     </form>
 
     <table class="table table-bordered table-striped">
